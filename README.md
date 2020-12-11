@@ -1,10 +1,8 @@
 # sylvir.dev
----
 ## purpose
 
 the main purpose of this is to serve as a portfolio of sorts for myself as well as a flexible blog system. I plan to heavily expand this and hope to integrate as many of my projects into it as possible
 
----
 ## development
 
 ##### prerequisites
@@ -32,4 +30,3 @@ the main purpose of this is to serve as a portfolio of sorts for myself as well 
   - and where `<password>` would be what you want your password to be
   - then proceed to the `/login` on the website and enter your credentials
   - *currently, the user api currently only allows one user account to exist at a time*
----
