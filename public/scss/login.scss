@@ -1,0 +1,31 @@
+.container {
+    height: 100%;
+
+    div.row {
+        margin-top: 35%;
+
+        div.col-sm {
+            text-align: center;
+
+            #dangerAlert.hidden {
+                color: transparent;
+                background-color: transparent;
+                border-color: transparent;
+            }
+
+            input {
+                width: 40%;
+                outline: none;
+                padding: 10px;
+                margin: 10px;
+                display: inline-block;
+            }
+
+            button {
+                width: 85%;
+                margin: 10px;
+                display: inline-block
+            }
+        }
+    }
+}

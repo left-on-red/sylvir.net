@@ -1,0 +1,27 @@
+nav.navbar {
+    background-color: #FFF !important;
+    box-shadow: 0 0 10px #00000030;
+
+    a.navbar-brand {
+        font-family: monospace;
+        font-size: 24px;
+        color: #00000080;
+    }
+
+    ul {
+        li.nav-item {
+            a {
+                font-weight: bold;
+                font-size: 18px;
+                font-family: monospace;
+                color: #00000040;
+            }
+
+            &.active {
+                a {
+                    color: #00000080;
+                }
+            }
+        }
+    }
+}

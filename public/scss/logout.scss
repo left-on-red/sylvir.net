@@ -1,0 +1,30 @@
+div#container {
+    text-align: center;
+
+    div#wrapper {
+        width: 50%;
+        margin-top: 20%;
+        display: inline-block;
+    
+        h2 {
+            font-family: monospace;
+            color: #00000060;
+        }
+
+        div#progress {
+            height: 7px;
+            width: 0%;
+            border-radius: 10px;
+            background-color: #007bff;
+            transition: all 3s;
+        }
+
+        div#progress.animated {
+            width: 100%;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+    }
+}

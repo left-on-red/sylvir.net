@@ -1,0 +1,34 @@
+/* tried to recreate https://marketplace.visualstudio.com/items?itemName=jolaleye.horizon-theme-vscode to the best of my ability */
+
+:root {
+    --lavender: #B877DB;
+    --cranberry: #E95678;
+    --turquoise: #25B0BC;
+    --apricot: #F09483;
+    --rosebud: #FAB795;
+    --tacao: #FAC29A;
+    --gray: #BBBBBB;
+}
+
+.ql-syntax {
+    background-color: #1C1E26 !important;
+}
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+}
+
+.hljs-function {
+    color: #fff;
+    .hljs-title { color: var(--turquoise) }
+    .hljs-params { color: var(--cranberry) }
+}
+
+.hljs-built_in, .hljs-class, .hljs-keyword { color: var(--lavender) }
+.hljs-constructor { color: var(--tacao) }
+.hljs-comment { color: var(--gray) }
+.hljs-string { color: var(--rosebud) }
+.hljs-variable { color: var(--cranberry) }
+.hljs-literal, .hljs-number { color: var(--apricot) }

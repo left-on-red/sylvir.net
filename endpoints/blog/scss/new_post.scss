@@ -1,0 +1,89 @@
+div.container {
+    margin-top: 50px;
+}
+
+input#titleInput {
+    outline: none;
+    color: #00000080;
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px solid #00000020;
+    padding: 11px 10px 10px 10px;
+    margin: 0;
+    width: 75%;
+}
+
+input#titleInput:focus {
+    border-color: #00000080;
+}
+
+input#titleInput::placeholder {
+    color: #00000040;
+}
+
+span#description {
+    cursor: text;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    min-height: 40px;
+    max-height: 200px;
+    line-height: 20px;
+    color: #00000080;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #00000020;
+    padding: 10px;
+    resize: none;
+}
+
+span#description[contenteditable]:empty::before {
+    content: 'describe your post...';
+    color: #00000040;
+}
+
+span#description:focus {
+    border-color: #00000080;
+}
+
+button#viewSwitch {
+    outline: none;
+    border: solid 1px #007bff;
+    border-bottom: solid 2px #007bff;
+    border-radius: 0;
+    padding: 10px;
+    margin: 0px 5px;
+    width: 20%;
+    float: right;
+    border-radius: 5px;
+}
+
+div#editorContainer {
+    height: 100%;
+}
+
+div#previewContainer {
+    div#previewBody {
+        margin: 10px;
+
+        img {
+            display: block;
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    button#submitPost {
+        border-radius: 5px;
+        width: 100%;
+    }
+}
+
+div.ql-editor img {
+    display: block;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
