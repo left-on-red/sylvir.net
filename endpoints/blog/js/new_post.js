@@ -60,6 +60,10 @@ $(function() {
     let markdown = '';
 
     function validate() {
+        localStorage.setItem('post-body', markdown);
+        localStorage.setItem('post-title', titleInput.val());
+        localStorage.setItem('post-description', descriptionInput.text());
+
         if (markdown != '' && titleInput.val() != '' && descriptionInput.text() != '') { viewSwitch.attr('disabled', false) }
         else { viewSwitch.attr('disabled', true) }
     }
@@ -98,6 +102,14 @@ $(function() {
 
         if (editing) { editorContainer.show() }
         else { previewContainer.show() }
+
+        if (localStorage.getItem('post-body')) {
+            markdown = localStorage.getItem('post-body');
+            quill.container.firstChild.innerHTML = md.render(markdown);
+        }
+
+        if (localStorage.getItem('post-title')) { titleInput.val(localStorage.getItem('post-title')) }
+        if (localStorage.getItem('post-description')) { descriptionInput.text(localStorage.getItem('post-description')) }
     }
 
     viewSwitch.click(function() {
@@ -133,6 +145,10 @@ $(function() {
 
             body: JSON.stringify({ md: markdown.replace(/(<([^>]+)>)/gi, '').replace('**_﻿_**', ''), title: titleInput.val(), description: descriptionInput.text(), tags: [] })
         });
+
+        localStorage.removeItem('post-body');
+        localStorage.removeItem('post-title');
+        localStorage.removeItem('post-description');
 
         let id = (await response.json()).id;
         window.location.href = `/blog/${id}`;
