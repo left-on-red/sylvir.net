@@ -35,6 +35,7 @@ $(function() {
             'header',
             'italic',
             'underline',
+            'strike',
             'link',
             'list',
             'image',
@@ -44,7 +45,7 @@ $(function() {
             syntax: true,
             toolbar: [
                 [ { header: [1, 2, 3, 4, 5, 6, false] } ],
-                [ 'bold', 'italic', 'underline' ],
+                [ 'bold', 'italic', 'underline', 'strike' ],
                 [ { 'list' : 'ordered' }, { 'list' : 'bullet' } ],
                 [ 'link', 'image', 'code-block' ]
             ]
@@ -60,7 +61,7 @@ $(function() {
     let markdown = '';
 
     function validate() {
-        localStorage.setItem('post-body', markdown);
+        localStorage.setItem('post-body', quill.container.firstChild.innerHTML);
         localStorage.setItem('post-title', titleInput.val());
         localStorage.setItem('post-description', descriptionInput.text());
 
@@ -79,6 +80,8 @@ $(function() {
                 }
             }]
         });
+
+        //console.log(md.render(markdown));
 
         previewBody.html(md.render(markdown));
         let blocks = previewBody.find('pre code');
@@ -102,14 +105,6 @@ $(function() {
 
         if (editing) { editorContainer.show() }
         else { previewContainer.show() }
-
-        if (localStorage.getItem('post-body')) {
-            markdown = localStorage.getItem('post-body');
-            quill.container.firstChild.innerHTML = md.render(markdown);
-        }
-
-        if (localStorage.getItem('post-title')) { titleInput.val(localStorage.getItem('post-title')) }
-        if (localStorage.getItem('post-description')) { descriptionInput.text(localStorage.getItem('post-description')) }
     }
 
     viewSwitch.click(function() {
@@ -153,6 +148,17 @@ $(function() {
         let id = (await response.json()).id;
         window.location.href = `/blog/${id}`;
     });
+
+    if (localStorage.getItem('post-body')) {
+        let html = localStorage.getItem('post-body');
+        quill.container.firstChild.innerHTML = html;
+
+        //let blocks = $(quill.container.firstChild).find('pre code');
+        //for (let b = 0; b < blocks.length; b++) { hljs.highlightBlock(blocks[b]) }
+    }
+
+    if (localStorage.getItem('post-title')) { titleInput.val(localStorage.getItem('post-title')) }
+    if (localStorage.getItem('post-description')) { descriptionInput.text(localStorage.getItem('post-description')) }
 
     render();
 });
