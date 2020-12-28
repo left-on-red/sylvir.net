@@ -1,7 +1,7 @@
 $(function() {
     if (!localStorage.getItem('token')) { window.location.href = '/' }
 
-    // https://github.com/quilljs/quill/issues/1993#issuecomment-670258840
+    // src: https://github.com/quilljs/quill/issues/1993#issuecomment-670258840
     // (removes syntax highlights code-block is turned off for a block of text)
     let _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
     const CodeBlock = Quill.import('formats/code-block');
@@ -54,6 +54,10 @@ $(function() {
         placeholder: 'compose your blog post...',
         theme: 'snow'
     });
+
+    $('div.ql-editor').css('height', `${Math.floor(window.innerHeight/2) + 50}px`);
+    $(window).resize(function() { $('div.ql-editor').css('height', `${Math.floor(window.innerHeight/2) + 50}px`) });
+
 
     let md = window.markdownit();
     md.set({ html: true });

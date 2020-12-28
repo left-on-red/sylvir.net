@@ -81,9 +81,19 @@ div#previewContainer {
     }
 }
 
-div.ql-editor img {
-    display: block;
-    max-height: 400px;
-    margin-left: auto;
-    margin-right: auto;
+div#editorContainer {
+    
+    div.ql-container {
+        height: auto;
+
+        div.ql-editor {
+            overflow-y: auto;
+
+            img {
+                display: block;
+                max-height: 400px;
+                margin-left: auto;
+                margin-right: auto;
+        }
+    }
 }
